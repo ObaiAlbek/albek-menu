@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { CakeSlice, ChevronLeft, ChevronRight, Coffee, Croissant, CupSoda, Layers, LockKeyhole, Sparkles } from 'lucide-react'
+import { CakeSlice, ChevronLeft, ChevronRight, Coffee, Croissant, CupSoda, Layers, LockKeyhole, MessageCircle, Music2, Phone, Sparkles, X } from 'lucide-react'
 import logo from './assets/logo.jpg'
 import { categories, heroImg, items, type Item } from './data'
 
@@ -10,6 +10,103 @@ const categoryIcons = {
   Knafeh: CakeSlice,
   'Kaffee & Espresso': Coffee,
   Kaltgetränke: CupSoda,
+}
+
+type IconProps = { size?: number; strokeWidth?: number; className?: string; 'aria-hidden'?: boolean | 'true' | 'false' }
+
+// lucide-react (v1+) enthält keine Markenlogos mehr, daher eigenes Instagram-Icon
+function Instagram({ size = 24, strokeWidth = 2, className, ...rest }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      {...rest}
+    >
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  )
+}
+
+const contactLinks = [
+  { label: 'WhatsApp Bestellung', detail: 'Schnell & unkompliziert', href: 'https://wa.me/4915739296794', icon: MessageCircle, external: true },
+  { label: 'Direkt anrufen', detail: '+49 1573 9296794', href: 'tel:+4915739296794', icon: Phone },
+  { label: 'Instagram', detail: '@albek.sweets', href: 'https://www.instagram.com/albek.sweets', icon: Instagram, external: true },
+  { label: 'TikTok', detail: '@albek.sweets', href: 'https://www.tiktok.com/@albek.sweets', icon: Music2, external: true },
+]
+
+function ContactWidget() {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6">
+      {open && (
+        <section
+          id="contact-panel"
+          role="dialog"
+          aria-labelledby="contact-panel-title"
+          className="contact-panel absolute bottom-[calc(100%+12px)] right-0 max-h-[75vh] w-[calc(100vw-2rem)] max-w-sm overflow-y-auto rounded-[26px] border border-gold/30 bg-cream/95 p-4 shadow-[0_24px_70px_-20px_rgba(29,28,16,.35)] backdrop-blur-xl sm:p-5"
+        >
+          <div className="flex items-center justify-between border-b border-gold/20 pb-3">
+            <h2 id="contact-panel-title" className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold-deep">
+              <span className="size-1.5 rounded-full bg-gold-deep" />
+              Wie können wir helfen?
+            </h2>
+            <button
+              type="button"
+              aria-label="Kontakt schließen"
+              onClick={() => setOpen(false)}
+              className="flex size-9 items-center justify-center rounded-full text-olive/65 transition hover:bg-gold/10 hover:text-olive"
+            >
+              <X size={18} aria-hidden="true" />
+            </button>
+          </div>
+          <div className="divide-y divide-gold/20">
+            {contactLinks.map((contact) => {
+              const Icon = contact.icon
+              return (
+                <a
+                  key={contact.label}
+                  href={contact.href}
+                  target={contact.external ? '_blank' : undefined}
+                  rel={contact.external ? 'noopener noreferrer' : undefined}
+                  className="group flex min-h-[74px] items-center gap-3 py-3 transition-colors hover:bg-white/50 sm:gap-4"
+                >
+                  <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-gold/15 bg-gold/10 text-gold-deep transition group-hover:bg-gold/20">
+                    <Icon size={19} strokeWidth={1.8} aria-hidden="true" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-serif text-[18px] leading-tight text-olive">{contact.label}</span>
+                    <span className="mt-1 block truncate text-xs text-olive/55">{contact.detail}</span>
+                  </span>
+                  <ChevronRight size={17} className="shrink-0 text-gold-deep/75 transition group-hover:translate-x-0.5" aria-hidden="true" />
+                </a>
+              )
+            })}
+          </div>
+        </section>
+      )}
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls="contact-panel"
+        onClick={() => setOpen((current) => !current)}
+        className="flex items-center gap-2.5 rounded-full border border-gold/35 bg-cream/95 px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-olive shadow-[0_10px_30px_-12px_rgba(141,107,36,.5)] backdrop-blur transition hover:-translate-y-0.5 hover:border-gold/60 hover:shadow-[0_14px_34px_-12px_rgba(141,107,36,.55)] sm:px-5"
+      >
+        {open ? <X size={17} aria-hidden="true" /> : <MessageCircle size={17} className="text-gold-deep" aria-hidden="true" />}
+        Kontakt
+      </button>
+    </div>
+  )
 }
 
 function Card({ item, i }: { item: Item; i: number }) {
@@ -202,6 +299,7 @@ export default function App() {
       <footer className="mt-20 text-center text-xs tracking-widest text-olive/40">
         ALBEK SWEETS &amp; ICE · حلويات البيك
       </footer>
+      <ContactWidget />
     </div>
   )
 }

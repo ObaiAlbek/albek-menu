@@ -45,7 +45,7 @@ const o = (...l: string[]): Option[] => l.map((label) => ({ label }))
 
 export const items: Item[] = [
   // Tagesgebäcke
-  { id: 'booza-arabi', name: 'Booza Arabi', desc: 'Arabisches Eis, fein mit Pistazien veredelt.', price: 20, priceUnit: 'kg', img: p('بوظة-عربي.webp'), cat: 'Tagesgebäcke', tag: 'جديدنا' },
+  { id: 'booza-arabi', name: 'Booza Arabi', desc: 'Arabisches Eis, fein mit Pistazien veredelt.', price: 25, priceUnit: 'kg', img: p('بوظة-عربي.webp'), cat: 'Tagesgebäcke', tag: 'جديدنا' },
   { id: 'bein', name: 'Bein Nareen', desc: 'Zarter Grieß-Teig, Rahm und Rosenblütensirup.', price: 20, priceUnit: 'kg', img: I.p1, cat: 'Tagesgebäcke', tag: 'Frisch' },
   { id: 'halawet', name: 'Halawet El Jibn', desc: 'Weiche Käse-Röllchen mit Qatr und Pistazienstaub.', price: 22, priceUnit: 'kg', img: I.p2, cat: 'Tagesgebäcke', tag: 'بلقشطة البلدية' },
   { id: 'mafroukeh', name: 'Mafroukeh', desc: 'Warmer Grieß, Ghee, Rahm und geröstete Nüsse.', price: 20, priceUnit: 'kg', img: I.p3, cat: 'Tagesgebäcke' },
@@ -53,7 +53,7 @@ export const items: Item[] = [
   { id: 'harissa', name: 'Harissa Nabkiyeh', desc: 'Saftiger Grießkuchen mit Mandel und Zuckersirup.', price: 20, priceUnit: 'kg', img: I.p5, cat: 'Tagesgebäcke' },
   { id: 'madlouka', name: 'Madlouka', desc: 'Gerollte Blätterteig-Spezialität mit Nussfüllung.', price: 22, priceUnit: 'kg', img: I.p6, cat: 'Tagesgebäcke', tag: 'بلقشطة البلدية' },
   { id: 'nabulsiya', name: 'Nabulsiya', desc: 'Nablus-Käse im feinen Knafeh-Nest, warm serviert.', price: 20, priceUnit: 'kg', img: p('Nabulsiya.jpg'), cat: 'Tagesgebäcke', tag: 'Signature' },
-  // Baklava
+  { id: 'layalina', name: 'Layalina', desc: 'Hausgemachte Spezialität, frisch zubereitet.', price: 25, priceUnit: 'kg', img: p('ليالينا.webp'), cat: 'Tagesgebäcke' },  // Baklava
   { id: 'asiyeh-p', name: 'Asiyeh Pistazie', desc: 'Knusprige Baklawa mit aromatischer Pistazienfüllung.', price: 45, priceUnit: 'kg', img: p('اسية بقلاوة  بالفستق.jpg'), cat: 'Baklava' },
   { id: 'asiyeh-w', name: 'Asiyeh Walnuss', desc: 'Knusprige Baklawa mit feiner Walnussfüllung.', price: 40, priceUnit: 'kg', img: p('اسية بقلاوة بالجوز .jpg'), cat: 'Baklava' },
   { id: 'asabe-p', name: 'Asabe Pistazie', desc: 'Feine, knusprige Teigröllchen mit Pistazien.', price: 45, priceUnit: 'kg', img: p('أصابع-فستق.webp'), cat: 'Baklava' },
