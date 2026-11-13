@@ -33,3 +33,9 @@
 .gold-shadow { box-shadow: 0 10px 30px -12px rgba(184,138,46,.45), 0 2px 6px rgba(184,138,46,.12); }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { scrollbar-width: none; }
+.new-arrival-tag {
+  color: var(--color-olive);
+  background: linear-gradient(115deg, #f7e7ad 0%, #fff9e8 42%, #e5c66e 100%);
+  border: 1px solid rgba(141, 107, 36, .38);
+  box-shadow: 0 5px 16px rgba(141, 107, 36, .28), inset 0 1px 0 rgba(255, 255, 255, .85);
+}

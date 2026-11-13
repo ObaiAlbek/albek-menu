@@ -14,6 +14,7 @@ const categoryIcons = {
 
 function Card({ item, i }: { item: Item; i: number }) {
   const isArabicTag = Boolean(item.tag && /[\u0600-\u06ff]/.test(item.tag))
+  const isNewTag = item.tag === 'جديدنا'
   const isArabicName = /[\u0600-\u06ff]/.test(item.name)
 
   return (
@@ -25,8 +26,8 @@ function Card({ item, i }: { item: Item; i: number }) {
         <img src={item.img} alt={item.name} loading="lazy" className="size-full object-cover transition duration-700 group-hover:scale-110" />
         <div className="absolute inset-0 bg-gradient-to-t from-olive/50 via-transparent to-white/10" />
         {item.tag && (
-          <span className={`absolute left-3 top-3 flex items-center gap-1 rounded-full bg-white/75 px-2.5 py-1 text-[10px] font-semibold text-gold-deep backdrop-blur ${isArabicTag ? 'tracking-normal' : 'uppercase tracking-widest'}`}>
-            <Sparkles size={10} /> <span dir={isArabicTag ? 'rtl' : undefined}>{item.tag}</span>
+          <span className={`absolute left-3 top-3 flex items-center gap-1 rounded-full text-[10px] font-semibold backdrop-blur ${isNewTag ? 'new-arrival-tag px-3 py-1' : 'bg-white/75 px-2.5 py-1 text-gold-deep'} ${isArabicTag ? 'tracking-normal' : 'uppercase tracking-widest'}`}>
+            <Sparkles size={isNewTag ? 12 : 10} className={isNewTag ? 'text-gold-deep' : undefined} /> <span dir={isArabicTag ? 'rtl' : undefined}>{item.tag}</span>
           </span>
         )}
       </div>
