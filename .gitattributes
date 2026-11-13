@@ -144,3 +144,7 @@
 *.stl                filter=lfs diff=lfs merge=lfs -text
 *.nc                 filter=lfs diff=lfs merge=lfs -text
 *.mat                filter=lfs diff=lfs merge=lfs -text
+
+# Keep deployed website images in Git itself so Vercel receives their bytes.
+/public/**            -filter -diff -merge -text
+/src/assets/**        -filter -diff -merge -text
