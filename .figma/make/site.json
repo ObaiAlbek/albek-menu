@@ -1,0 +1,15 @@
+{
+  "language": "de",
+  "title": "Albek Sweets & Ice | Orientalische Süßigkeiten & Café",
+  "icons": {
+    "icon": "/favicon.ico"
+  },
+  "description": "Explore Albek Sweets & Ice’s luxury menu of Arabic pastries, baklava, knafeh, coffee, and cold drinks, with options and easy ordering.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

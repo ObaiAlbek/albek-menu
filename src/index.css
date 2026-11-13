@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-olive: #1d1c10;
+  --color-olive-2: #2a2813;
+  --color-gold: #c9a24a;
+  --color-gold-light: #ecd48f;
+  --color-gold-deep: #8d6b24;
+  --color-cream: #fbf7ee;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); background: var(--color-cream); color: #2b2614; -webkit-font-smoothing: antialiased; }
+  button { cursor: pointer; }
+}
+
+.gold-text {
+  background: linear-gradient(100deg, #8d6b24, #e8cf86 40%, #b88a2e 70%, #f3e2a6);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+@keyframes shimmer { to { background-position: 200% center; } }
+@keyframes floaty { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-14px) } }
+@keyframes rise { from { opacity: 0; transform: translateY(24px) } to { opacity: 1; transform: none } }
+@keyframes spin-slow { to { transform: rotate(360deg) } }
+.rise { animation: rise .7s cubic-bezier(.2,.8,.2,1) both; }
+.glass { background: rgba(255,255,255,.62); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); border: 1px solid rgba(255,255,255,.7); }
+.gold-shadow { box-shadow: 0 10px 30px -12px rgba(184,138,46,.45), 0 2px 6px rgba(184,138,46,.12); }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
