@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { CakeSlice, ChevronLeft, ChevronRight, Coffee, Croissant, CupSoda, Layers, Sparkles } from 'lucide-react'
+import { CakeSlice, ChevronLeft, ChevronRight, Coffee, Croissant, CupSoda, Layers, LockKeyhole, Sparkles } from 'lucide-react'
 import logo from './assets/logo.jpg'
 import { categories, heroImg, items, type Item } from './data'
 
@@ -131,17 +131,26 @@ export default function App() {
           <nav ref={categoryNavRef} aria-label="Menükategorien" className="glass gold-shadow no-scrollbar flex w-full gap-1 overflow-x-auto overscroll-x-contain scroll-smooth rounded-full p-1.5 pr-11 sm:pr-1.5">
             {categories.map((c) => {
               const Icon = categoryIcons[c as keyof typeof categoryIcons]
+              const isLocked = c === 'Kaltgetränke'
               return (
                 <button
                   key={c}
                   onClick={() => setCat(c)}
+                  disabled={isLocked}
+                  aria-label={isLocked ? `${c}, gesperrt` : c}
+                  title={isLocked ? 'Zurzeit gesperrt' : undefined}
                   className={`flex-none whitespace-nowrap rounded-full px-3 py-2.5 text-sm font-medium transition-all duration-300 sm:flex-1 sm:px-4 ${
-                    c === cat ? 'bg-olive text-gold-light shadow-lg shadow-olive/30' : 'text-olive/60 hover:text-olive'
+                    isLocked
+                      ? 'cursor-not-allowed text-olive/40'
+                      : c === cat
+                        ? 'bg-olive text-gold-light shadow-lg shadow-olive/30'
+                        : 'text-olive/60 hover:text-olive'
                   }`}
                 >
                   <span className="inline-flex items-center justify-center gap-2">
                     <Icon size={16} strokeWidth={1.8} aria-hidden="true" />
                     {c}
+                    {isLocked && <LockKeyhole size={13} strokeWidth={1.8} aria-hidden="true" />}
                   </span>
                 </button>
               )
