@@ -19,7 +19,7 @@ function Card({ item, i }: { item: Item; i: number }) {
 
   return (
     <article
-      className="rise group relative flex flex-col overflow-hidden rounded-[28px] glass gold-shadow transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-16px_rgba(184,138,46,.55)]"
+      className={`rise group relative flex flex-col overflow-hidden rounded-[28px] glass gold-shadow transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-16px_rgba(184,138,46,.55)] ${isNewTag ? 'new-arrival-card' : ''}`}
       style={{ animationDelay: `${Math.min(i, 8) * 60}ms` }}
     >
       <div className="relative m-2 aspect-[5/4] overflow-hidden rounded-[22px]">
