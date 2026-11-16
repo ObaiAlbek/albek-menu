@@ -23,19 +23,7 @@ type IconProps = { size?: number; strokeWidth?: number; className?: string; 'ari
 
 function Instagram({ size = 24, strokeWidth = 2, className, ...rest }: IconProps) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      {...rest}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={className} {...rest}>
       <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
       <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
@@ -43,8 +31,16 @@ function Instagram({ size = 24, strokeWidth = 2, className, ...rest }: IconProps
   )
 }
 
+function WhatsAppIcon({ size = 24, className, ...rest }: IconProps) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} {...rest}>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  )
+}
+
 const contactLinks = [
-  { label: 'طلب عبر واتساب', detail: 'سريع وسهل', href: `https://wa.me/${WHATSAPP}`, icon: MessageCircle, external: true },
+  { label: 'طلب عبر واتساب', detail: 'سريع وسهل', href: `https://wa.me/${WHATSAPP}`, icon: WhatsAppIcon, external: true },
   { label: 'اتصال مباشر', detail: '+49 1573 9296794', href: `tel:+${WHATSAPP}`, icon: Phone },
   { label: 'إنستغرام', detail: '@albek.sweets', href: 'https://www.instagram.com/albek.sweets', icon: Instagram, external: true },
   { label: 'تيك توك', detail: '@albek.sweets', href: 'https://www.tiktok.com/@albek.sweets', icon: Music2, external: true },
@@ -56,23 +52,13 @@ function ContactWidget() {
   return (
     <div className="fixed bottom-4 left-4 z-50 sm:bottom-6 sm:left-6">
       {open && (
-        <section
-          id="contact-panel"
-          role="dialog"
-          aria-labelledby="contact-panel-title"
-          className="contact-panel absolute bottom-[calc(100%+12px)] left-0 max-h-[75vh] w-[calc(100vw-2rem)] max-w-sm overflow-y-auto rounded-[26px] border border-gold/30 bg-cream/95 p-4 shadow-[0_24px_70px_-20px_rgba(29,28,16,.35)] backdrop-blur-xl sm:p-5"
-        >
+        <section id="contact-panel" role="dialog" aria-labelledby="contact-panel-title" className="contact-panel absolute bottom-[calc(100%+12px)] left-0 max-h-[75vh] w-[calc(100vw-2rem)] max-w-sm overflow-y-auto rounded-[26px] border border-gold/30 bg-cream/95 p-4 shadow-[0_24px_70px_-20px_rgba(29,28,16,.35)] backdrop-blur-xl sm:p-5">
           <div className="flex items-center justify-between border-b border-gold/20 pb-3">
             <h2 id="contact-panel-title" className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold-deep">
               <span className="size-1.5 rounded-full bg-gold-deep" />
               كيف يمكننا مساعدتك؟
             </h2>
-            <button
-              type="button"
-              aria-label="إغلاق التواصل"
-              onClick={() => setOpen(false)}
-              className="flex size-9 items-center justify-center rounded-full text-olive/65 transition hover:bg-gold/10 hover:text-olive"
-            >
+            <button type="button" aria-label="إغلاق التواصل" onClick={() => setOpen(false)} className="flex size-9 items-center justify-center rounded-full text-olive/65 transition hover:bg-gold/10 hover:text-olive">
               <X size={18} aria-hidden="true" />
             </button>
           </div>
@@ -80,13 +66,7 @@ function ContactWidget() {
             {contactLinks.map((contact) => {
               const Icon = contact.icon
               return (
-                <a
-                  key={contact.label}
-                  href={contact.href}
-                  target={contact.external ? '_blank' : undefined}
-                  rel={contact.external ? 'noopener noreferrer' : undefined}
-                  className="group flex min-h-[74px] items-center gap-3 py-3 transition-colors hover:bg-white/50 sm:gap-4"
-                >
+                <a key={contact.label} href={contact.href} target={contact.external ? '_blank' : undefined} rel={contact.external ? 'noopener noreferrer' : undefined} className="group flex min-h-[74px] items-center gap-3 py-3 transition-colors hover:bg-white/50 sm:gap-4">
                   <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-gold/15 bg-gold/10 text-gold-deep transition group-hover:bg-gold/20">
                     <Icon size={19} strokeWidth={1.8} aria-hidden="true" />
                   </span>
@@ -101,13 +81,7 @@ function ContactWidget() {
           </div>
         </section>
       )}
-      <button
-        type="button"
-        aria-expanded={open}
-        aria-controls="contact-panel"
-        onClick={() => setOpen((current) => !current)}
-        className="flex items-center gap-2.5 rounded-full border border-gold/35 bg-cream/95 px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-olive shadow-[0_10px_30px_-12px_rgba(141,107,36,.5)] backdrop-blur transition hover:-translate-y-0.5 hover:border-gold/60 hover:shadow-[0_14px_34px_-12px_rgba(141,107,36,.55)] sm:px-5"
-      >
+      <button type="button" aria-expanded={open} aria-controls="contact-panel" onClick={() => setOpen((current) => !current)} className="flex items-center gap-2.5 rounded-full border border-gold/35 bg-cream/95 px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-olive shadow-[0_10px_30px_-12px_rgba(141,107,36,.5)] backdrop-blur transition hover:-translate-y-0.5 hover:border-gold/60 hover:shadow-[0_14px_34px_-12px_rgba(141,107,36,.55)] sm:px-5">
         {open ? <X size={17} aria-hidden="true" /> : <MessageCircle size={17} className="text-gold-deep" aria-hidden="true" />}
         تواصل معنا
       </button>
@@ -121,10 +95,7 @@ function Card({ item, i }: { item: Item; i: number }) {
   const isArabicName = /[\u0600-\u06ff]/.test(item.name)
 
   return (
-    <article
-      className={`rise group relative flex flex-col overflow-hidden rounded-[28px] glass gold-shadow transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-16px_rgba(184,138,46,.55)] ${isNewTag ? 'new-arrival-card' : ''}`}
-      style={{ animationDelay: `${Math.min(i, 8) * 60}ms` }}
-    >
+    <article className={`rise group relative flex flex-col overflow-hidden rounded-[28px] glass gold-shadow transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-16px_rgba(184,138,46,.55)] ${isNewTag ? 'new-arrival-card' : ''}`} style={{ animationDelay: `${Math.min(i, 8) * 60}ms` }}>
       <div className="relative m-2 aspect-[5/4] overflow-hidden rounded-[22px]">
         <img src={item.img} alt={item.name} loading="lazy" className="size-full object-cover transition duration-700 group-hover:scale-110" />
         <div className="absolute inset-0 bg-gradient-to-t from-olive/50 via-transparent to-white/10" />
@@ -135,7 +106,6 @@ function Card({ item, i }: { item: Item; i: number }) {
         )}
       </div>
       
-      {/* Hier wurde desc entfernt und der Titel schöner formatiert */}
       <div className="flex flex-1 flex-col gap-3 px-5 pb-5 pt-3">
         <h3 dir={isArabicName ? 'rtl' : undefined} className={`flex-1 font-serif text-[26px] font-semibold leading-tight text-olive ${isArabicName ? 'text-right' : ''}`}>
           {item.name}
@@ -153,14 +123,8 @@ function Card({ item, i }: { item: Item; i: number }) {
         )}
         <div className="mt-auto flex items-center justify-between gap-3 pt-3.5">
           {item.priceUnit === 'kg' ? (
-            <a
-              href={orderLink(item)}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`اطلب ${item.name} عبر واتساب`}
-              className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-white/70 px-3.5 py-2 text-xs font-semibold text-olive transition hover:border-gold hover:bg-gold-light/40"
-            >
-              <MessageCircle size={14} className="text-gold-deep" aria-hidden="true" />
+            <a href={orderLink(item)} target="_blank" rel="noopener noreferrer" aria-label={`اطلب ${item.name} عبر واتساب`} className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-white/70 px-3.5 py-2 text-xs font-semibold text-olive transition hover:border-gold hover:bg-gold-light/40">
+              <WhatsAppIcon size={15} className="text-[#25D366]" aria-hidden="true" />
               اطلب الآن
             </a>
           ) : (
@@ -171,7 +135,7 @@ function Card({ item, i }: { item: Item; i: number }) {
               {item.price.toLocaleString('de-DE', item.priceUnit === 'kg' ? undefined : { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </span>
             <span className="text-sm font-semibold text-gold-deep">€</span>
-            {item.priceUnit === 'kg' && <span className="mr-1 text-xs font-medium text-olive/55">/ كغ</span>}
+            {item.priceUnit === 'kg' && <span className="mr-1 text-xs font-medium text-olive/55">/ kg</span>}
           </span>
         </div>
       </div>
@@ -214,62 +178,45 @@ export default function App() {
   }, [])
 
   return (
-    <div dir="rtl" className="relative min-h-screen overflow-x-clip pb-12 font-sans">
+    <div dir="rtl" className="relative min-h-screen overflow-x-clip font-sans pb-32">
+      
       {/* HERO */}
-      <header className="relative isolate overflow-hidden bg-olive text-white">
+      <header className="relative isolate overflow-hidden bg-olive text-white pb-16">
         <img src={heroImg} alt="بقلاوة ذهبية" className="absolute inset-0 -z-10 size-full scale-110 object-cover opacity-45" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-olive/70 via-olive/50 to-olive" />
         <div className="absolute -left-20 top-10 -z-10 size-72 rounded-full bg-gold/30 blur-3xl" style={{ animation: 'floaty 8s ease-in-out infinite' }} />
         <div className="absolute -right-24 top-40 -z-10 size-80 rounded-full bg-gold-light/20 blur-3xl" style={{ animation: 'floaty 10s ease-in-out infinite reverse' }} />
 
-        <div className="mx-auto flex max-w-5xl flex-col items-center px-6 pb-28 pt-10 text-center">
+        <div className="mx-auto flex max-w-5xl flex-col items-center px-6 pt-12 text-center">
           <div className="rise relative">
             <div className="absolute -inset-3 rounded-full border border-gold/40" style={{ animation: 'spin-slow 40s linear infinite', borderStyle: 'dashed' }} />
-            <img src={logo} alt="شعار البيك سويتس" className="size-36 rounded-full object-cover object-center shadow-[0_0_60px_rgba(201,162,74,.5)] ring-2 ring-gold/70 sm:size-44" />
+            <img src={logo} alt="شعار البيك سويتس" className="size-32 rounded-full object-cover object-center shadow-[0_0_60px_rgba(201,162,74,.5)] ring-2 ring-gold/70 sm:size-44" />
           </div>
-          <p className="rise mt-8 text-xs uppercase tracking-[0.4em] text-gold-light" style={{ animationDelay: '150ms' }}>
+          <p className="rise mt-6 text-xs uppercase tracking-[0.4em] text-gold-light" style={{ animationDelay: '150ms' }}>
             مرحباً بكم في قصر الحلويات
           </p>
           <h1 className="rise mt-4 font-serif text-5xl font-semibold leading-[1.05] sm:text-7xl" style={{ animationDelay: '250ms' }}>
             متعة شرقية،
             <br /> <span className="gold-text italic">تأسر القلوب</span>
           </h1>
-          <p className="rise mt-6 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base" style={{ animationDelay: '350ms' }}>
+          <p className="rise mt-5 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base" style={{ animationDelay: '350ms' }}>
             حلويات شرقية · آيس كريم · قهوة مميزة
           </p>
-          <a
-            href="#menu"
-            className="rise mt-9 rounded-full bg-gradient-to-r from-gold-light via-gold to-gold-light px-8 py-3.5 text-sm font-semibold tracking-wide text-olive shadow-[0_10px_40px_-8px_rgba(201,162,74,.8)] transition hover:scale-105"
-            style={{ animationDelay: '450ms' }}
-          >
+          <a href="#menu" className="rise mt-8 rounded-full bg-gradient-to-r from-gold-light via-gold to-gold-light px-8 py-3.5 text-sm font-semibold tracking-wide text-olive shadow-[0_10px_40px_-8px_rgba(201,162,74,.8)] transition hover:scale-105" style={{ animationDelay: '450ms' }}>
             اكتشف قائمة الطعام
           </a>
         </div>
-        <div className="absolute inset-x-0 bottom-0 h-16 rounded-t-[48px] bg-cream" />
       </header>
 
       {/* TABS */}
-      <div id="menu" className="sticky top-3 z-40 mx-auto -mt-2 max-w-3xl px-3">
+      <div id="menu" className="sticky top-2 z-40 mx-auto max-w-3xl px-3">
         <div className="relative">
-          <nav ref={categoryNavRef} aria-label="فئات القائمة" className="glass gold-shadow no-scrollbar flex w-full gap-1 overflow-x-auto overscroll-x-contain scroll-smooth rounded-full p-1.5 pl-11 sm:pl-1.5">
+          <nav ref={categoryNavRef} aria-label="فئات القائمة" className="bg-[#fbf7ee]/95 shadow-md border border-gold/20 backdrop-blur-md no-scrollbar flex w-full gap-1 overflow-x-auto overscroll-x-contain scroll-smooth rounded-full p-1.5 pl-11 sm:pl-1.5">
             {categories.map((c) => {
               const Icon = categoryIcons[c as keyof typeof categoryIcons]
               const isLocked = c === 'مشروبات باردة'
               return (
-                <button
-                  key={c}
-                  onClick={() => selectCat(c)}
-                  disabled={isLocked}
-                  aria-label={isLocked ? `${c}، مغلق` : c}
-                  title={isLocked ? 'مغلق حالياً' : undefined}
-                  className={`flex-none whitespace-nowrap rounded-full px-3 py-2.5 text-sm font-medium transition-all duration-300 sm:flex-1 sm:px-4 ${
-                    isLocked
-                      ? 'cursor-not-allowed text-olive/40'
-                      : c === cat
-                        ? 'bg-olive text-gold-light shadow-lg shadow-olive/30'
-                        : 'text-olive/60 hover:text-olive'
-                  }`}
-                >
+                <button key={c} onClick={() => selectCat(c)} disabled={isLocked} aria-label={isLocked ? `${c}، مغلق` : c} title={isLocked ? 'مغلق حالياً' : undefined} className={`flex-none whitespace-nowrap rounded-full px-3 py-2.5 text-sm font-medium transition-all duration-300 sm:flex-1 sm:px-4 ${isLocked ? 'cursor-not-allowed text-olive/40' : c === cat ? 'bg-olive text-gold-light shadow-lg shadow-olive/30' : 'text-olive/60 hover:text-olive'}`}>
                   <span className="inline-flex items-center justify-center gap-2">
                     <Icon size={16} strokeWidth={1.8} aria-hidden="true" />
                     {c}
@@ -280,22 +227,12 @@ export default function App() {
             })}
           </nav>
           {categoryScroll.left && (
-            <button
-              type="button"
-              aria-label="عرض الفئات السابقة"
-              onClick={() => categoryNavRef.current?.scrollBy({ left: -180, behavior: 'smooth' })}
-              className="absolute left-1 top-1/2 z-10 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-gold/20 bg-cream/95 text-olive shadow-md backdrop-blur sm:hidden"
-            >
+            <button type="button" aria-label="عرض الفئات السابقة" onClick={() => categoryNavRef.current?.scrollBy({ left: -180, behavior: 'smooth' })} className="absolute left-1 top-1/2 z-10 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-gold/20 bg-cream text-olive shadow-md sm:hidden">
               <ChevronRight size={18} aria-hidden="true" />
             </button>
           )}
           {categoryScroll.right && (
-            <button
-              type="button"
-              aria-label="عرض المزيد من الفئات"
-              onClick={() => categoryNavRef.current?.scrollBy({ left: 180, behavior: 'smooth' })}
-              className="absolute right-1 top-1/2 z-10 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-gold/20 bg-cream/95 text-olive shadow-md backdrop-blur sm:hidden"
-            >
+            <button type="button" aria-label="عرض المزيد من الفئات" onClick={() => categoryNavRef.current?.scrollBy({ left: 180, behavior: 'smooth' })} className="absolute right-1 top-1/2 z-10 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-gold/20 bg-cream text-olive shadow-md sm:hidden">
               <ChevronLeft size={18} aria-hidden="true" />
             </button>
           )}
@@ -303,10 +240,11 @@ export default function App() {
       </div>
 
       {/* MENU */}
-      <main ref={mainRef} className="relative mx-auto max-w-6xl scroll-mt-20 px-4 pt-12">
+      <main ref={mainRef} className="relative mx-auto max-w-6xl scroll-mt-32 px-4 pt-10">
         <div className="pointer-events-none absolute left-1/2 top-0 -z-10 size-[520px] -translate-x-1/2 rounded-full bg-gold-light/30 blur-3xl" />
-        <div className="mb-8 text-center">
-          <p className="text-[11px] uppercase tracking-[0.4em] text-gold-deep">البيك سويتس آند آيس</p>
+        <div className="mb-10 text-center">
+          {/* HIER WIEDER AUF ENGLISCH ZURÜCKGESETZT */}
+          <p className="text-[11px] uppercase tracking-[0.4em] text-gold-deep">ALBEK SWEETS &amp; ICE</p>
           <h2 key={cat} dir="rtl" className="rise mt-2 font-serif text-4xl font-semibold text-olive sm:text-5xl">{cat}</h2>
           <div className="mx-auto mt-4 flex items-center justify-center gap-3 text-gold">
             <span className="h-px w-16 bg-gradient-to-r from-transparent to-gold" />
@@ -321,8 +259,8 @@ export default function App() {
         </div>
       </main>
 
-      {/* Footer: Text zurückgesetzt und Abstand nach unten für den Kontakt-Button (pb-24) hinzugefügt */}
-      <footer className="mt-20 pb-24 sm:pb-0 text-center text-xs tracking-widest text-olive/40 uppercase">
+      {/* FOOTER */}
+      <footer className="mt-20 pb-10 text-center text-xs tracking-widest text-olive/40 uppercase">
         ALBEK SWEETS &amp; ICE · حلويات البيك
       </footer>
       <ContactWidget />
