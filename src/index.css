@@ -1,9 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=El+Messiri:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Tajawal:wght@400;500;700&display=swap');
 @import 'tailwindcss';
 
 @theme {
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  /* El Messiri ist die edle arabische Schrift für Überschriften & Preise. 
+     Cormorant Garamond bleibt für deutschen Text zuständig. */
+  --font-serif: 'Cormorant Garamond', 'El Messiri', 'Amiri', Georgia, serif;
+  
+  /* Tajawal ist perfekt für arabische Beschreibungen, Inter für Deutsch. */
+  --font-sans: 'Inter', 'Tajawal', 'Cairo', system-ui, sans-serif;
+  
   --color-olive: #1d1c10;
   --color-olive-2: #2a2813;
   --color-gold: #c9a24a;
