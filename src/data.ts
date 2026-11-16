@@ -15,7 +15,7 @@ export type Item = {
   tag?: string
 }
 
-export const categories = ['Tagesgebäcke', 'Baklava', 'Knafeh', 'Kaffee & Espresso', 'Kaltgetränke']
+export const categories = ['حلويات اليوم', 'بقلاوة', 'كنافة', 'قهوة وإسبريسو', 'مشروبات باردة']
 
 export const heroImg = u('1791337442521-ef4e171442dc', 1600)
 
@@ -44,39 +44,40 @@ const I = {
 const o = (...l: string[]): Option[] => l.map((label) => ({ label }))
 
 export const items: Item[] = [
-  // Tagesgebäcke
-  { id: 'booza-arabi', name: 'Booza Arabi', desc: 'Arabisches Eis, fein mit Pistazien veredelt.', price: 25, priceUnit: 'kg', img: p('بوظة-عربي.webp'), cat: 'Tagesgebäcke', tag: 'جديدنا' },
-  { id: 'bein', name: 'Bein Nareen', desc: 'Zarter Grieß-Teig, Rahm und Rosenblütensirup.', price: 20, priceUnit: 'kg', img: I.p1, cat: 'Tagesgebäcke', tag: 'Frisch' },
-  { id: 'halawet', name: 'Halawet El Jibn', desc: 'Weiche Käse-Röllchen mit Qatr und Pistazienstaub.', price: 22, priceUnit: 'kg', img: I.p2, cat: 'Tagesgebäcke', tag: 'بلقشطة البلدية' },
-  { id: 'mafroukeh', name: 'Mafroukeh', desc: 'Warmer Grieß, Ghee, Rahm und geröstete Nüsse.', price: 20, priceUnit: 'kg', img: I.p3, cat: 'Tagesgebäcke' },
-  { id: 'warbat', name: 'Warbat', desc: 'Knuspriger Filoteig, gefüllt mit süßem Ashta-Rahm.', price: 20, priceUnit: 'kg', img: I.p4, cat: 'Tagesgebäcke' },
-  { id: 'harissa', name: 'Harissa Nabkiyeh', desc: 'Saftiger Grießkuchen mit Mandel und Zuckersirup.', price: 20, priceUnit: 'kg', img: I.p5, cat: 'Tagesgebäcke' },
-  { id: 'madlouka', name: 'Madlouka', desc: 'Gerollte Blätterteig-Spezialität mit Nussfüllung.', price: 22, priceUnit: 'kg', img: I.p6, cat: 'Tagesgebäcke', tag: 'بلقشطة البلدية' },
-  { id: 'nabulsiya', name: 'Nabulsiya', desc: 'Nablus-Käse im feinen Knafeh-Nest, warm serviert.', price: 20, priceUnit: 'kg', img: p('Nabulsiya.jpg'), cat: 'Tagesgebäcke', tag: 'Signature' },
-  { id: 'layalina', name: 'Layalina', desc: 'Hausgemachte Spezialität, frisch zubereitet.', price: 25, priceUnit: 'kg', img: p('ليالينا.webp'), cat: 'Tagesgebäcke' },  // Baklava
-  { id: 'asiyeh-p', name: 'Asiyeh Pistazie', desc: 'Knusprige Baklawa mit aromatischer Pistazienfüllung.', price: 45, priceUnit: 'kg', img: p('اسية بقلاوة  بالفستق.jpg'), cat: 'Baklava' },
-  { id: 'asiyeh-w', name: 'Asiyeh Walnuss', desc: 'Knusprige Baklawa mit feiner Walnussfüllung.', price: 40, priceUnit: 'kg', img: p('اسية بقلاوة بالجوز .jpg'), cat: 'Baklava' },
-  { id: 'asabe-p', name: 'Asabe Pistazie', desc: 'Feine, knusprige Teigröllchen mit Pistazien.', price: 45, priceUnit: 'kg', img: p('أصابع-فستق.webp'), cat: 'Baklava' },
-  { id: 'asabe-c', name: 'Asabe Cashew', desc: 'Feine, knusprige Teigröllchen mit Cashewkernen.', price: 40, priceUnit: 'kg', img: p('اصابع بالكاجو.jpg'), cat: 'Baklava' },
-  { id: 'siwar', name: 'Siwar El Sit', desc: 'Ein klassischer Baklava-Ring, fein mit Nüssen gefüllt.', price: 45, priceUnit: 'kg', img: p('سوار الست .jpg'), cat: 'Baklava' },
-  { id: 'kol-p', name: 'Kol W Shkor Pistazie', desc: 'Knusprige Baklava-Röllchen mit Pistazienfüllung.', price: 45, priceUnit: 'kg', img: p('كول شكور فستق .jpg'), cat: 'Baklava' },
-  { id: 'kol-c', name: 'Kol W Shkor Cashew', desc: 'Knusprige Baklava-Röllchen mit Cashewfüllung.', price: 40, priceUnit: 'kg', img: p('كول وشكور كاجو .jpg'), cat: 'Baklava' },
-  { id: 'baqj', name: 'Baqaj', desc: 'Zarte Baklava-Päckchen, goldbraun und knusprig.', price: 45, priceUnit: 'kg', img: p('بقج .jpg'), cat: 'Baklava' },
-  // Knafeh
-  { id: 'ballouria-p', name: 'Ballouria Pistazie', desc: 'Knusprige Knafeh-Fäden mit feiner Pistazienfüllung.', price: 45, priceUnit: 'kg', img: p('بلورية بالفستق.jpg'), cat: 'Knafeh' },
-  { id: 'ballouria-filled', name: 'Ballouria gefüllt mit Pistazie', desc: 'Feine Knafeh-Fäden, reich mit Pistazien gefüllt.', price: 45, priceUnit: 'kg', img: p('بلورية حمرا بالفستق.jpg'), cat: 'Knafeh' },
-  { id: 'mabrouma', name: 'Mabrouma', desc: 'Gedrehte Knafeh-Spirale mit Pistazienherz.', price: 45, priceUnit: 'kg', img: p('مبرومة .jpg'), cat: 'Knafeh' },
-  { id: 'osh-p', name: 'Osh El Bulbul Pistazie', desc: 'Knusprige Knafeh-Nester mit Pistazienfüllung.', price: 45, priceUnit: 'kg', img: p('عش البلبل بالفستق .jpg'), cat: 'Knafeh' },
-  { id: 'osh-c', name: 'Osh El Bulbul Cashew', desc: 'Knusprige Knafeh-Nester mit Cashewfüllung.', price: 45, priceUnit: 'kg', img: p('عش البلبل بالكاجو.jpg'), cat: 'Knafeh' },
-  { id: 'osh-cream', name: 'Osh El Bulbul Pistaziencreme', desc: 'Knusprige Knafeh-Nester mit Pistaziencreme.', price: 45, priceUnit: 'kg', img: p('عش البلبل بكريمة الفستق.jpg'), cat: 'Knafeh' },
-  { id: 'osh-h', name: 'Osh El Bulbul Haselnuss', desc: 'Knusprige Knafeh-Nester mit Haselnussfüllung.', price: 45, priceUnit: 'kg', img: p('عش البلبل بالبندق .png'), cat: 'Knafeh' },
-  // Kaffee
-  { id: 'espresso', name: 'Espresso', desc: 'Dunkel, samtig, mit goldener Crema.', price: 3, img: I.esp, cat: 'Kaffee & Espresso' },
-  { id: 'creme', name: 'Café Crème', desc: 'Lang gezogen, mild und aromatisch.', price: 3, img: I.cc, cat: 'Kaffee & Espresso' },
-  { id: 'cappu', name: 'Cappuccino', desc: 'Seidiger Milchschaum über starkem Espresso.', price: 3.5, img: I.cap, cat: 'Kaffee & Espresso', options: [{ label: 'Classic' }, { label: 'Oat Milk', extra: 0.5 }, { label: 'Caramel', extra: 0.6 }, { label: 'Vanilla', extra: 0.6 }] },
-  { id: 'matcha', name: 'Matcha Latte', desc: 'Zeremonieller Matcha mit cremiger Milch.', price: 4.6, img: I.mat, cat: 'Kaffee & Espresso', options: o('Matcha mit Vanille', 'Matcha mit Erdbeere') },
-  // Kalt
-  { id: 'cola', name: 'Coca-Cola', desc: 'Eiskalt serviert, 0,33 l.', price: 2.8, img: I.cola, cat: 'Kaltgetränke' },
-  { id: 'capri', name: 'Capri-Sun', desc: 'Fruchtig und erfrischend, für Groß und Klein.', price: 1.8, img: I.capri, cat: 'Kaltgetränke' },
-  { id: 'water', name: 'Premium Mineralwasser', desc: 'Still oder spritzig, 0,75 l.', price: 4.5, img: I.water, cat: 'Kaltgetränke', options: o('Still', 'Medium') },
+  // حلويات اليوم
+  { id: 'booza-arabi', name: 'بوظة عربي', desc: 'Arabisches Eis, fein mit Pistazien veredelt.', price: 25, priceUnit: 'kg', img: p('بوظة-عربي.webp'), cat: 'حلويات اليوم', tag: 'جديدنا' },
+  { id: 'bein', name: 'بين نارين', desc: 'Zarter Grieß-Teig, Rahm und Rosenblütensirup.', price: 20, priceUnit: 'kg', img: I.p1, cat: 'حلويات اليوم', tag: 'طازج' },
+  { id: 'halawet', name: 'حلاوة الجبن', desc: 'Weiche Käse-Röllchen mit Qatr und Pistazienstaub.', price: 22, priceUnit: 'kg', img: I.p2, cat: 'حلويات اليوم', tag: 'بلقشطة البلدية' },
+  { id: 'mafroukeh', name: 'مفروكة', desc: 'Warmer Grieß, Ghee, Rahm und geröstete Nüsse.', price: 20, priceUnit: 'kg', img: I.p3, cat: 'حلويات اليوم' },
+  { id: 'warbat', name: 'وربات', desc: 'Knuspriger Filoteig, gefüllt mit süßem Ashta-Rahm.', price: 20, priceUnit: 'kg', img: I.p4, cat: 'حلويات اليوم' },
+  { id: 'harissa', name: 'هريسة نبكية', desc: 'Saftiger Grießkuchen mit Mandel und Zuckersirup.', price: 20, priceUnit: 'kg', img: I.p5, cat: 'حلويات اليوم' },
+  { id: 'madlouka', name: 'مدلوقة', desc: 'Gerollte Blätterteig-Spezialität mit Nussfüllung.', price: 22, priceUnit: 'kg', img: I.p6, cat: 'حلويات اليوم', tag: 'بلقشطة البلدية' },
+  { id: 'nabulsiya', name: 'نابلسية', desc: 'Nablus-Käse im feinen Knafeh-Nest, warm serviert.', price: 20, priceUnit: 'kg', img: p('Nabulsiya.jpg'), cat: 'حلويات اليوم', tag: 'تخصصنا' },
+  { id: 'layalina', name: 'ليالينا', desc: 'Hausgemachte Spezialität, frisch zubereitet.', price: 25, priceUnit: 'kg', img: p('ليالينا.webp'), cat: 'حلويات اليوم' },
+  // بقلاوة
+  { id: 'asiyeh-p', name: 'اسية بالفستق', desc: 'Knusprige Baklawa mit aromatischer Pistazienfüllung.', price: 45, priceUnit: 'kg', img: p('اسية بقلاوة  بالفستق.jpg'), cat: 'بقلاوة' },
+  { id: 'asiyeh-w', name: 'اسية بالجوز', desc: 'Knusprige Baklawa mit feiner Walnussfüllung.', price: 40, priceUnit: 'kg', img: p('اسية بقلاوة بالجوز .jpg'), cat: 'بقلاوة' },
+  { id: 'asabe-p', name: 'أصابع بالفستق', desc: 'Feine, knusprige Teigröllchen mit Pistazien.', price: 45, priceUnit: 'kg', img: p('أصابع-فستق.webp'), cat: 'بقلاوة' },
+  { id: 'asabe-c', name: 'أصابع بالكاجو', desc: 'Feine, knusprige Teigröllchen mit Cashewkernen.', price: 40, priceUnit: 'kg', img: p('اصابع بالكاجو.jpg'), cat: 'بقلاوة' },
+  { id: 'siwar', name: 'سوار الست', desc: 'Ein klassischer Baklava-Ring, fein mit Nüssen gefüllt.', price: 45, priceUnit: 'kg', img: p('سوار الست .jpg'), cat: 'بقلاوة' },
+  { id: 'kol-p', name: 'كول وشكور بالفستق', desc: 'Knusprige Baklava-Röllchen mit Pistazienfüllung.', price: 45, priceUnit: 'kg', img: p('كول شكور فستق .jpg'), cat: 'بقلاوة' },
+  { id: 'kol-c', name: 'كول وشكور بالكاجو', desc: 'Knusprige Baklava-Röllchen mit Cashewfüllung.', price: 40, priceUnit: 'kg', img: p('كول وشكور كاجو .jpg'), cat: 'بقلاوة' },
+  { id: 'baqj', name: 'بقج', desc: 'Zarte Baklava-Päckchen, goldbraun und knusprig.', price: 45, priceUnit: 'kg', img: p('بقج .jpg'), cat: 'بقلاوة' },
+  // كنافة
+  { id: 'ballouria-p', name: 'بلورية بالفستق', desc: 'Knusprige Knafeh-Fäden mit feiner Pistazienfüllung.', price: 45, priceUnit: 'kg', img: p('بلورية بالفستق.jpg'), cat: 'كنافة' },
+  { id: 'ballouria-filled', name: 'بلورية حمرا بالفستق', desc: 'Feine Knafeh-Fäden, reich mit Pistazien gefüllt.', price: 45, priceUnit: 'kg', img: p('بلورية حمرا بالفستق.jpg'), cat: 'كنافة' },
+  { id: 'mabrouma', name: 'مبرومة', desc: 'Gedrehte Knafeh-Spirale mit Pistazienherz.', price: 45, priceUnit: 'kg', img: p('مبرومة .jpg'), cat: 'كنافة' },
+  { id: 'osh-p', name: 'عش البلبل بالفستق', desc: 'Knusprige Knafeh-Nester mit Pistazienfüllung.', price: 45, priceUnit: 'kg', img: p('عش البلبل بالفستق .jpg'), cat: 'كنافة' },
+  { id: 'osh-c', name: 'عش البلبل بالكاجو', desc: 'Knusprige Knafeh-Nester mit Cashewfüllung.', price: 45, priceUnit: 'kg', img: p('عش البلبل بالكاجو.jpg'), cat: 'كنافة' },
+  { id: 'osh-cream', name: 'عش البلبل بكريمة الفستق', desc: 'Knusprige Knafeh-Nester mit Pistaziencreme.', price: 45, priceUnit: 'kg', img: p('عش البلبل بكريمة الفستق.jpg'), cat: 'كنافة' },
+  { id: 'osh-h', name: 'عش البلبل بالبندق', desc: 'Knusprige Knafeh-Nester mit Haselnussfüllung.', price: 45, priceUnit: 'kg', img: p('عش البلبل بالبندق .png'), cat: 'كنافة' },
+  // قهوة وإسبريسو
+  { id: 'espresso', name: 'إسبريسو', desc: 'Dunkel, samtig, mit goldener Crema.', price: 3, img: I.esp, cat: 'قهوة وإسبريسو' },
+  { id: 'creme', name: 'كافيه كريم', desc: 'Lang gezogen, mild und aromatisch.', price: 3, img: I.cc, cat: 'قهوة وإسبريسو' },
+  { id: 'cappu', name: 'كابتشينو', desc: 'Seidiger Milchschaum über starkem Espresso.', price: 3.5, img: I.cap, cat: 'قهوة وإسبريسو', options: [{ label: 'Classic' }, { label: 'Oat Milk', extra: 0.5 }, { label: 'Caramel', extra: 0.6 }, { label: 'Vanilla', extra: 0.6 }] },
+  { id: 'matcha', name: 'ماتشا لاتيه', desc: 'Zeremonieller Matcha mit cremiger Milch.', price: 4.6, img: I.mat, cat: 'قهوة وإسبريسو', options: o('Matcha mit Vanille', 'Matcha mit Erdbeere') },
+  // مشروبات باردة
+  { id: 'cola', name: 'كوكا كولا', desc: 'Eiskalt serviert, 0,33 l.', price: 2.8, img: I.cola, cat: 'مشروبات باردة' },
+  { id: 'capri', name: 'كابري صن', desc: 'Fruchtig und erfrischend, für Groß und Klein.', price: 1.8, img: I.capri, cat: 'مشروبات باردة' },
+  { id: 'water', name: 'مياه معدنية', desc: 'Still oder spritzig, 0,75 l.', price: 4.5, img: I.water, cat: 'مشروبات باردة', options: o('Still', 'Medium') },
 ]

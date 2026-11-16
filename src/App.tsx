@@ -5,11 +5,11 @@ import { categories, heroImg, items, type Item } from './data'
 
 const eur = (n: number) => n.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })
 const categoryIcons = {
-  Tagesgebäcke: Croissant,
-  Baklava: Layers,
-  Knafeh: CakeSlice,
-  'Kaffee & Espresso': Coffee,
-  Kaltgetränke: CupSoda,
+  'حلويات اليوم': Croissant,
+  'بقلاوة': Layers,
+  'كنافة': CakeSlice,
+  'قهوة وإسبريسو': Coffee,
+  'مشروبات باردة': CupSoda,
 }
 
 type IconProps = { size?: number; strokeWidth?: number; className?: string; 'aria-hidden'?: boolean | 'true' | 'false' }
@@ -229,14 +229,14 @@ export default function App() {
           <nav ref={categoryNavRef} aria-label="Menükategorien" className="glass gold-shadow no-scrollbar flex w-full gap-1 overflow-x-auto overscroll-x-contain scroll-smooth rounded-full p-1.5 pr-11 sm:pr-1.5">
             {categories.map((c) => {
               const Icon = categoryIcons[c as keyof typeof categoryIcons]
-              const isLocked = c === 'Kaltgetränke'
+              const isLocked = c === 'مشروبات باردة'
               return (
                 <button
                   key={c}
                   onClick={() => setCat(c)}
                   disabled={isLocked}
                   aria-label={isLocked ? `${c}, gesperrt` : c}
-                  title={isLocked ? 'Zurzeit gesperrt' : undefined}
+                  title={isLocked ? 'مغلق حالياً' : undefined}
                   className={`flex-none whitespace-nowrap rounded-full px-3 py-2.5 text-sm font-medium transition-all duration-300 sm:flex-1 sm:px-4 ${
                     isLocked
                       ? 'cursor-not-allowed text-olive/40'
@@ -282,7 +282,7 @@ export default function App() {
         <div className="pointer-events-none absolute left-1/2 top-0 -z-10 size-[520px] -translate-x-1/2 rounded-full bg-gold-light/30 blur-3xl" />
         <div className="mb-8 text-center">
           <p className="text-[11px] uppercase tracking-[0.4em] text-gold-deep">Albek Sweets &amp; Ice</p>
-          <h2 key={cat} className="rise mt-2 font-serif text-4xl font-semibold text-olive sm:text-5xl">{cat}</h2>
+          <h2 key={cat} dir="rtl" className="rise mt-2 font-serif text-4xl font-semibold text-olive sm:text-5xl">{cat}</h2>
           <div className="mx-auto mt-4 flex items-center justify-center gap-3 text-gold">
             <span className="h-px w-16 bg-gradient-to-r from-transparent to-gold" />
             <span className="size-1.5 rotate-45 bg-gold" />
